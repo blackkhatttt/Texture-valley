@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10191a">
+  <meta name="description" content="Texture Valley — procedural texture studio">
+  <title>Texture Valley — Procedural Texture Studio</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Texture Valley home">
+        <span class="brand-mark">TV</span>
+        <span><strong>TEXTURE VALLEY</strong><small>PROCEDURAL TEXTURE STUDIO</small></span>
+      </a>
+      <span class="version">WEB PREVIEW · 0.1.0</span>
+    </header>
+
+    <section class="workspace">
+      <section class="preview-panel panel">
+        <div class="panel-heading">
+          <div><span class="eyebrow">CANVAS</span><h1>Texture preview</h1></div>
+          <span id="preview-size" class="size-chip">512 × 512</span>
+        </div>
+        <div class="preview-stage">
+          <canvas id="preview" width="512" height="512" aria-label="Generated texture preview"></canvas>
+          <div id="empty-state" class="empty-state"><span class="empty-icon">▦</span><strong>Your material starts here</strong><span>Generate a texture to see it on the canvas.</span></div>
+        </div>
+        <div class="preview-footer">
+          <span id="status" role="status">Ready · Choose a material and generate.</span>
+          <span class="format-tag">PNG EXPORT</span>
+        </div>
+      </section>
+
+      <aside class="controls-panel panel">
+        <div class="panel-heading"><div><span class="eyebrow">WORKSPACE</span><h2>Material settings</h2></div></div>
+
+        <label class="field-label" for="material">Material</label>
+        <select id="material">
+          <option value="concrete">Concrete</option>
+          <option value="wood">Wood</option>
+          <option value="metal">Metal</option>
+          <option value="wallpaper">Wallpaper</option>
+        </select>
+
+        <label class="field-label" for="resolution">Resolution</label>
+        <select id="resolution">
+          <option value="256">256 × 256</option>
+          <option value="512" selected>512 × 512</option>
+          <option value="1024">1024 × 1024</option>
+          <option value="2048">2048 × 2048</option>
+        </select>
+
+        <div class="range-block">
+          <div class="range-heading"><label for="scale">Scale</label><output id="scale-value">0.55</output></div>
+          <input id="scale" type="range" min="0" max="1" step="0.01" value="0.55">
+          <p>Controls the size of the material pattern.</p>
+        </div>
+        <div class="range-block">
+          <div class="range-heading"><label for="noise">Noise</label><output id="noise-value">0.45</output></div>
+          <input id="noise" type="range" min="0" max="1" step="0.01" value="0.45">
+          <p>Adjusts natural variation and surface irregularity.</p>
+        </div>
+        <div class="range-block">
+          <div class="range-heading"><label for="detail">Detail</label><output id="detail-value">0.55</output></div>
+          <input id="detail" type="range" min="0" max="1" step="0.01" value="0.55">
+          <p>Changes the amount of fine surface features.</p>
+        </div>
+
+        <div class="actions">
+          <button id="generate" class="button button-primary"><span>✦</span> Generate texture</button>
+          <button id="export" class="button button-secondary" disabled>↓ Export PNG</button>
+        </div>
+        <div class="tip"><span>i</span><p>Tip: generate again to create a new variation. Your settings stay in place.</p></div>
+      </aside>
+    </section>
+    <footer class="footer"><span>TEXTURE VALLEY</span><span>Made for material creators · Runs in your browser</span></footer>
+  </main>
+</body>
+</html>
