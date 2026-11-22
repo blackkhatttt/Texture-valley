@@ -5,7 +5,7 @@ package.domain = org.texturevalley
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,txt
 version = 0.1.0
-requirements = python3,kivy,numpy,pillow
+requirements = python3,kivy,numpy,pillow,charset-normalizer==2.1.1
 orientation = portrait
 fullscreen = 0
 
