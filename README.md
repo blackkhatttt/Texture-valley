@@ -1,16 +1,33 @@
-# Texture Valley 0.1.0
+# Texture Valley
 
-Texture Valley is a cross-platform procedural texture creator built with Python, Kivy, NumPy and Pillow.
+Texture Valley is a procedural texture creator. The repository currently contains two editions:
 
-## Features
+- **Web edition** — browser-based app in `web/`, built with HTML, CSS and JavaScript. It requires no installation and can be deployed with GitHub Pages.
+- **Python edition** — the original Kivy app for desktop and Android, kept intact as the native-app foundation.
+
+## Web edition
+
+Open `web/index.html` in a modern browser, or publish the `web/` folder with GitHub Pages.
+
+The **Deploy Texture Valley Web** workflow deploys the site automatically when files in `web/` change on `main`. To enable the first deployment:
+
+1. Open the repository's **Settings → Pages**.
+2. Under **Build and deployment**, select **GitHub Actions** as the source.
+3. Open **Actions** and run **Deploy Texture Valley Web** if the first push did not start it automatically.
+
+The published address will be shown in the workflow's deployment environment after a successful run.
+
+### Web 0.1.0 features
+
 - Procedural Concrete, Wood, Metal and Wallpaper materials
-- 256, 512, 1024 and 2048 square output sizes
+- 256, 512, 1024 and 2048 square resolutions
 - Scale, Noise and Detail controls
-- 2D texture preview
-- PNG export
-- Touch-friendly Kivy interface for Android and desktop
+- Live 2D preview
+- PNG export directly from the browser
+- Responsive layout for desktop, tablet and mobile
 
-## Run on PC
+## Python edition (original)
+
 Python 3.11 is recommended.
 
 ```bash
@@ -21,28 +38,21 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## Automated builds
-The GitHub Actions workflow **Build Texture Valley** runs on pushes to `main` and can also be started manually from the Actions tab.
+The original Kivy edition and its procedural generator remain in the repository. Android packaging is temporarily paused while the web edition is developed.
 
-When the workflow succeeds, it publishes:
-- **Texture-Valley-Windows**: a Windows desktop build.
-- **Texture-Valley-Android-APK**: a debug APK for Android.
-- **Texture-Valley-PC-Source**: the Python source package.
+## Roadmap
 
-Open the repository's **Actions** tab, select **Build Texture Valley**, and choose **Run workflow** to start a build manually. Download the outputs from the completed run's **Artifacts** section.
-
-## Android local build
-Android builds can also be made on Linux with Buildozer:
-
-```bash
-python -m pip install buildozer cython
-buildozer android debug
-```
-
-The first build downloads Android SDK/NDK components and may take several minutes.
-
-## Export location
-PNG files are saved in the application's private data directory under `exports/`. A system file picker/share workflow is planned for a later release.
+- 0.1.0 — Web migration and core generator
+- 0.2.0 — Editor improvements
+- 0.3.0 — More procedural controls
+- 0.4.0 — Texture library
+- 0.5.0 — Export improvements
+- 0.6.0 — Advanced materials
+- 0.7.0 — Mobile optimization
+- 0.8.0 — Additional tools
+- 0.9.0 — Polish and testing
+- 1.0.0 — Stable release
 
 ## Current scope
-Version 0.1 provides procedural generation. AI generation, PBR map sets, advanced seamless tiling and 3D preview are planned for future versions; they are not included as active features yet.
+
+AI generation, PBR map sets, seamless tiling and 3D preview are future features, not part of Web 0.1.0.
